@@ -88,3 +88,33 @@ func (stack *Stack) Push(x interface{}) {
 * IO 相关的函数。
 * map 数据类型。并强调：map，slice，channel 都必须通过 `make()` 函数创建。
 
+### 从极坐标到笛卡尔坐标——并发
+
+介绍了 go 语言强大的并发机制。channel 和 goroutine
+
+channel 可以 传递数据 和 实现线程同步。
+
+goroutine 使用 go 语句实现异步函数调用。
+
+使用 make 创建 channel：
+
+```
+messages := make(chan string, 10)
+```
+第一个参数表示接收的类型为 字符串，第二个参数表示缓冲区大小为 10。
+
+发送数据到 channel：
+```
+messages <- "Leader"
+messages <- "Follower"
+```
+当 `<-` 操作符用做二元操作符时，它的左操作数必须是一个 channel，右操作数必须是发往该 channel 的数据。
+
+当 `<-` 操作符用作一元操作符时，它的右边必须是个channel，表示从这个 channel 接收一个值:
+
+```
+message1 := <-messages
+message2 := <-messages
+```
+
+channel 和 goroutine 的知识第七章会详述。
