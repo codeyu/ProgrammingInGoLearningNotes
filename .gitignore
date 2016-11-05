@@ -23,3 +23,9 @@ _testmain.go
 *.test
 *.prof
 .vscode
+
+# out files
+wordfrequency
+!wordfrequency/
+indent_sort
+!indent_sort/
